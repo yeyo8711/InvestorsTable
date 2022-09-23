@@ -60,13 +60,14 @@ const Header = () => {
   };
 
   return (
-    <div className='flex justify-end h-14 w-full p-3 text-black bg-gray-400'>
+    <div className="flex justify-end h-14 w-full p-3 text-black bg-[#212121]">
       <button
         onClick={connectWallet}
-        className='p-2 flex justify-center items-center bg-blue-400'>
-        {userAddress !== null ? shortUserAddress : "Connect Wallet"}
+        className="p-3 flex justify-center items-center rounded-sm bg-[#f0f8ff]"
+      >
+        {userAddress !== null ? shortUserAddress : "Connect"}
       </button>
-      <script src='https://unpkg.com/@themesberg/flowbite@1.1.0/dist/flowbite.bundle.js'></script>
+      <script src="https://unpkg.com/@themesberg/flowbite@1.1.0/dist/flowbite.bundle.js"></script>
     </div>
   );
 };

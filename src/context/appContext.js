@@ -9,13 +9,12 @@ import abi from "../contracts/abi.json";
 export const AppContext = createContext();
 
 const ContextProvider = ({ children }) => {
-  const contracAddress = "";
+  const contracAddress = "0x8D07641F09Af613Efd1BD1E10B5669719DD3Ff8D";
+
   console.log(abi);
 
-  // const staticProvider = new ethers.providers.JsonRpcProvider(`url`)();
-  // const staticContract = new ethers.Contract(`address`, abi, `provider`);
-
-  const readOnlyTokenContrac = "token";
+  // const staticProvider = new ethers.providers.JsonRpcProvider(); // const staticContract = new ethers.Contract(`address`, abi, `provider`);
+  const contractABI = abi;
   const [userAddress, setUserAddress] = useState(null);
   const [netWork, setNetwork] = useState("Ethereum");
   const [signer, setSigner] = useState(null);
@@ -43,6 +42,8 @@ const ContextProvider = ({ children }) => {
         setNetwork,
         signer,
         setSigner,
+        contractABI,
+        contracAddress,
       }}
     >
       {children}
