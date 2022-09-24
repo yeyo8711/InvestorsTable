@@ -9,7 +9,7 @@ import abi from "../contracts/abi.json";
 export const AppContext = createContext();
 
 const ContextProvider = ({ children }) => {
-  const contracAddress = "0x8D07641F09Af613Efd1BD1E10B5669719DD3Ff8D";
+  const contracAddress = "0x4c45914f6659B232716092d9F91934edb5924b50";
 
   console.log(abi);
 

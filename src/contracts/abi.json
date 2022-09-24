@@ -48,29 +48,6 @@
     "type": "event"
   },
   {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "_telegram",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "_instagram",
-        "type": "string"
-      }
-    ],
-    "name": "sendFunds",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "counter",
     "outputs": [
@@ -105,7 +82,7 @@
       },
       {
         "internalType": "string",
-        "name": "instagram",
+        "name": "twitter",
         "type": "string"
       },
       {
@@ -120,6 +97,29 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_telegram",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_instagram",
+        "type": "string"
+      }
+    ],
+    "name": "sendFunds",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
   }
 ]

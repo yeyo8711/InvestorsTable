@@ -54,7 +54,7 @@ const Header = () => {
       const signer = provider.getSigner();
       console.log("header signer", signer);
       setUserAddress(accounts[0]);
-      switchNetwork();
+      await switchNetwork();
     } catch (error) {
       window.alert("wallet connection denied");
     }

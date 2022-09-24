@@ -4,7 +4,7 @@ export const switchNetwork = async () => {
   try {
     await window.ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: "0x38" }],
+      params: [{ chainId: "0x61" }],
     });
   } catch (error) {
     if (error.code === 4902) {
@@ -13,15 +13,15 @@ export const switchNetwork = async () => {
           method: "wallet_addEthereumChain",
           params: [
             {
-              chainId: "0x38",
-              chainName: "Smart Chain",
+              chainId: "0x61",
+              chainName: "Smart Chain — Testnet",
               nativeCurrency: {
                 name: "Binance",
-                symbol: "BNB",
+                symbol: "tBNB",
                 decimals: 18,
               },
-              blockExplorerUrls: ["https://bscscan.com"],
-              rpcUrls: ["https://bsc-dataseed.binance.org/"],
+              blockExplorerUrls: ["https://testnet.bscscan.com"],
+              rpcUrls: [" https://testnet.bscscan.com"],
             },
           ],
         });
@@ -50,3 +50,35 @@ export const shortAddress = (address) => {
     address.substring(address.length - 4, address.length);
   return shortAddress;
 };
+
+// mainnet
+// chainId: "0x38"
+//params: [
+//   {
+//     chainId: "0x38",
+//     chainName: "Smart Chain",
+//     nativeCurrency: {
+//       name: "Binance",
+//       symbol: "BNB",
+//       decimals: 18,
+//     },
+//     blockExplorerUrls: ["https://bscscan.com"],
+//     rpcUrls: ["https://bsc-dataseed.binance.org/"],
+//   },
+// ],
+
+// testnet
+// chainId: "0x61"
+// params: [
+//   {
+//     chainId: "0x61",
+//     chainName: "Smart Chain — Testnet",
+//     nativeCurrency: {
+//       name: "Binance",
+//       symbol: "tBNB",
+//       decimals: 18,
+//     },
+//     blockExplorerUrls: ["https://testnet.bscscan.com"],
+//     rpcUrls: [" https://testnet.bscscan.com"],
+//   },
+// ],

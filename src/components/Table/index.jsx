@@ -8,7 +8,7 @@ const Table = () => {
   const [investorInfo, setInvestorInfo] = useState([]);
 
   useEffect(() => {
-    if (window.ethereum === undefined) return;
+    if (window.ethereum === undefined) return console.log();
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const readContract = new ethers.Contract(
       contracAddress,
@@ -27,8 +27,8 @@ const Table = () => {
           {
             name: investorData.name,
             telegram: investorData.telegram,
-            instagram: investorData.instagram,
-            amount: ethers.utils.formatUnits(investorData.amount, 0),
+            twitter: investorData.twitter,
+            amount: ethers.utils.formatEther(investorData.amount),
             address: investorData.wallet,
           },
         ]);
@@ -65,24 +65,20 @@ const Table = () => {
                 <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
                   Amount
                 </th>
-                <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
-                  Tnx
-                </th>
               </tr>
             </thead>
 
             <tbody className="divide-y divide-gray text-black">
-              {/* {investorInfo.map((item) => (
+              {investorInfo?.map((item, index) => (
                 <UserCard
-                index={index}
-                name={item.name}
-                address={item.address}
-                instagram={item.telegram}
-                twitter={item.twitter}
-                amount={Number(item.amount).toFixed(2)}
-                tnx={item.tnx}
-              />
-              ))} */}
+                  index={index}
+                  name={item.name}
+                  address={item.address}
+                  telegram={item.telegram}
+                  twitter={item.twitter}
+                  amount={Number(item.amount)}
+                />
+              ))}
             </tbody>
           </table>
         </div>
