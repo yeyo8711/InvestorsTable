@@ -38,43 +38,54 @@ const Table = () => {
   }, []);
 
   return (
-    <section className="w-full flex justify-center">
-      <div className="overflow-hidden w-[600px] overflow-x-auto border border-gray-100 rounded">
-        <table className="min-w-full text-sm divide-y text-white divide-gray-200">
-          <thead>
-            <tr className=" text-[#979797f]">
-              <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
-                Address
-              </th>
-              <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
-                Name
-              </th>
-              <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
-                Instagram
-              </th>
-              <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
-                Twitter
-              </th>
-              <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
-                Contribuition
-              </th>
-            </tr>
-          </thead>
+    <section className="w-full flex justify-center p-4">
+      <div className="max-w-screen-xl w-full flex flex-col pb-20 items-center">
+        <h3 className="text-center text-[34px] mb-4">
+          Private Sale | Seed Round 1 Investors
+        </h3>
+        <div className="overflow-hidden max-w-screen-lg w-full overflow-x-auto shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] rounded-2xl p-5">
+          <table className="min-w-full text-sm divide-y text-black  divide-gray-200">
+            <thead>
+              <tr>
+                <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
+                  #
+                </th>
+                <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
+                  Name
+                </th>
+                <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
+                  Wallet Address
+                </th>
+                <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
+                  Telegram
+                </th>
+                <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
+                  Twitter
+                </th>
+                <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
+                  Amount
+                </th>
+                <th className="px-4 py-2 font-medium text-left whitespace-nowrap">
+                  Tnx
+                </th>
+              </tr>
+            </thead>
 
-          <tbody className="divide-y divide-gray-100 text-white">
-            {investorInfo.map((item) => (
-              <UserCard
+            <tbody className="divide-y divide-gray text-black">
+              {/* {investorInfo.map((item) => (
+                <UserCard
+                index={index}
                 name={item.name}
-                address={
-                  item.address.slice(0, 5) + ".." + item.address.slice(-5)
-                }
-                instagram={item.instagram}
-                twitter={item.telegram}
-                donation={Number(item.amount).toFixed(2)}
+                address={item.address}
+                instagram={item.telegram}
+                twitter={item.twitter}
+                amount={Number(item.amount).toFixed(2)}
+                tnx={item.tnx}
               />
-            ))}
-          </tbody>
-        </table>
+              ))} */}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ethers } from "ethers";
 
-import { shortAddress } from "../../utils";
+import { shortAddress, switchNetwork } from "../../utils";
 import { AppContext } from "../../context/appContext";
 
 const Header = () => {
@@ -54,21 +54,25 @@ const Header = () => {
       const signer = provider.getSigner();
       console.log("header signer", signer);
       setUserAddress(accounts[0]);
+      switchNetwork();
     } catch (error) {
       window.alert("wallet connection denied");
     }
   };
 
   return (
-    <div className="flex justify-end h-14 w-full p-3 text-black bg-[#212121]">
-      <button
-        onClick={connectWallet}
-        className="p-3 flex justify-center items-center rounded-sm bg-[#f0f8ff]"
-      >
-        {userAddress !== null ? shortUserAddress : "Connect"}
-      </button>
-      <script src="https://unpkg.com/@themesberg/flowbite@1.1.0/dist/flowbite.bundle.js"></script>
-    </div>
+    <header className="w-full flex justify-center items-center">
+      <div className="flex justify-between items-center h-14 max-w-screen-xl w-full p-3 ">
+        <h1 className="text-xl font-bold">Portal Dapp</h1>
+        <button
+          onClick={connectWallet}
+          className="py-2 px-5 flex justify-center items-center text-white rounded-[30px] bg-[#0057FF] hover:bg-[#003bb1]"
+        >
+          {userAddress !== null ? shortUserAddress : "Connect Wallet"}
+        </button>
+        <script src="https://unpkg.com/@themesberg/flowbite@1.1.0/dist/flowbite.bundle.js"></script>
+      </div>
+    </header>
   );
 };
 export default Header;
