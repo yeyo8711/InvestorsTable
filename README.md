@@ -1,8 +1,9 @@
 ## Investors Table - Fundraising Project
 
+
 #### 🚀 Running on Binance Smart Chani Testnet
 #### 📑 Contract Address: 0x4c45914f6659B232716092d9F91934edb5924b50
-<br/>
+#### 💥 Demo: https://investors-table-65ou.vercel.app/
 <br/>
 
 ### Features ###
