@@ -73,22 +73,20 @@ export default function Banner() {
   };
 
   return (
-    <section className="w-full flex justify-center bg-[#0057FF] text-white">
-      <div className="flex justify-around gap-7 flex-wrap max-w-screen-xl w-full py-7 sm:py-24">
-        <div className="flex flex-col p-10">
-          <h2 className="font-extrabold text-5xl sm:text-[60px]">
-            Portal Dapp
-          </h2>
-          <ul className="font-bold text-lg mt-10 sm:text-[27px]">
+    <section className="w-full flex justify-center items-center bg-[#0057FF] text-white">
+      <div className="flex justify-center gap-7 flex-wrap items-center lg:justify-between max-w-screen-xl w-full py-7 sm:py-24">
+        <div className="flex flex-col py-10 px-4 sm:p-0">
+          <h2 className="font-bold text-[48px] sm:text-[64px]">Portal Dapp</h2>
+          <ul className="font-bold text-[32px] mt-5 sm:text-[27px]">
             <li>Invest</li>
             <li>Track</li>
             <li>Network</li>
           </ul>
-          <p className="pt-14">Launching Q4 2022</p>
+          <p className="pt-10">Launching Q4 2022</p>
         </div>
 
-        <div className="max-w-[500px] w-full p-2 sm:p-5">
-          <h3 className="text-2xl mb-3 text-center">
+        <div className="max-w-[450px] w-full p-1">
+          <h3 className="text-lg sm:text-2xl mb-3 text-center">
             Private Sale | Seed Round 1
           </h3>
 
@@ -97,25 +95,25 @@ export default function Banner() {
               <input
                 onChange={handleUserName}
                 type="text"
-                className="rounded-lg h-9 focus:outline-none p-3"
+                className="rounded-lg h-9 focus:outline-none p-3 text-[14px]a"
                 placeholder="Full name (Required)"
               />
               <input
                 onChange={handleTelegram}
                 type="text"
-                className="rounded-lg h-9 focus:outline-none p-3"
+                className="rounded-lg h-9 focus:outline-none p-3 text-[14px]"
                 placeholder="Telegram Username (Opitional)"
               />
               <input
                 onChange={handleTwitter}
                 type="text"
-                className="rounded-lg h-9 focus:outline-none p-3"
+                className="rounded-lg h-9 focus:outline-none p-3 text-[14px]"
                 placeholder="Twitter Username (Opitional)"
               />
 
               <select
                 onChange={handleUserDonation}
-                className="block w-full text-gray-400 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                className="block text-[14px] w-full text-gray-400 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
                 name="animals"
               >
                 <option value="" className="text-gray-400">

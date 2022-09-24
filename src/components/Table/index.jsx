@@ -43,10 +43,10 @@ const Table = () => {
   return (
     <section className="w-full flex justify-center p-4">
       <div className="max-w-screen-xl w-full flex flex-col pb-20 items-center">
-        <h3 className="text-center text-[34px] mb-4">
+        <h3 className="text-center text-md sm:text-[34px] mb-4">
           Private Sale | Seed Round 1 Investors
         </h3>
-        <div className="overflow-hidden max-w-screen-lg w-full overflow-x-auto shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] rounded-2xl p-5">
+        <div className="overflow-hidden  w-full overflow-x-auto shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] rounded-2xl p-5">
           <table className="min-w-full text-sm divide-y text-black  divide-gray-200">
             <thead>
               <tr>

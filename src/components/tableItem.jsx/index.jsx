@@ -22,7 +22,7 @@ const UserCard = ({ index, name, address, telegram, twitter, amount }) => {
       </td>
       <td className="px-4 py-2 font-medium whitespace-nowrap">{amount} BNB</td>
       {/* <td className="px-4 py-2 font-medium whitespace-nowrap">
-        <a href={`https://bscscan.com/tx/${tnx}`}>
+        <a href={`https://testnet.bscscan.com/tx/${tnx}`}>
           {tnx.slice(0, 9) + ".." + tnx.slice(-4)}
         </a>
       </td> */}

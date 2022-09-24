@@ -4,7 +4,7 @@ import Main from "./components/MainContent";
 
 function App() {
   return (
-    <div>
+    <div className="font-inter">
       <Header />
       <Main />
     </div>
