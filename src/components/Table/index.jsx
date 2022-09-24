@@ -8,8 +8,11 @@ const Table = () => {
   const [investorInfo, setInvestorInfo] = useState([]);
 
   useEffect(() => {
-    if (window.ethereum === undefined) return console.log();
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    // if (window.ethereum === undefined) return;
+    //const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const provider = new ethers.providers.JsonRpcProvider(
+      "https://rpc.ankr.com/bsc_testnet_chapel"
+    );
     const readContract = new ethers.Contract(
       contracAddress,
       contractABI,
@@ -71,6 +74,7 @@ const Table = () => {
             <tbody className="divide-y divide-gray text-black">
               {investorInfo?.map((item, index) => (
                 <UserCard
+                  key={index}
                   index={index}
                   name={item.name}
                   address={item.address}

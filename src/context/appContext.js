@@ -11,7 +11,7 @@ export const AppContext = createContext();
 const ContextProvider = ({ children }) => {
   const contracAddress = "0x4c45914f6659B232716092d9F91934edb5924b50";
 
-  console.log(abi);
+  // console.log(abi);
 
   // const staticProvider = new ethers.providers.JsonRpcProvider(); // const staticContract = new ethers.Contract(`address`, abi, `provider`);
   const contractABI = abi;
@@ -20,6 +20,8 @@ const ContextProvider = ({ children }) => {
   const [signer, setSigner] = useState(null);
 
   useEffect(() => {
+    if (window.ethereum === undefined) return;
+
     /**Get the network on page load (even if the user is not connected) */
     const getId = async () => {
       const id = await getChainId();

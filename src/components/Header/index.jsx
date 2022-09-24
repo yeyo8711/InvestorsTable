@@ -21,7 +21,7 @@ const Header = () => {
         const signer = provider.getSigner();
         setSigner(signer);
 
-        console.log("header getaccounts signer =>", signer);
+        // console.log("header getaccounts signer =>", signer);
         setShortUserAddress(shortAddress(accounts[0]));
       } catch (error) {
         console.log("get accounts failed");
@@ -40,21 +40,22 @@ const Header = () => {
         setShortUserAddress(shortAddress(accounts[0]));
 
         const signer = provider.getSigner();
-        console.log("header getaccounts signer =>", signer);
+        // console.log("header getaccounts signer =>", signer);
       }
     }
   }, []);
 
   const connectWallet = async () => {
-    if (!window.ethereum) return console.log("install metamask!");
+    if (!window.ethereum) return window.alert("Install Metamask!");
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     try {
       const accounts = await provider.send("eth_requestAccounts", []);
-      const signer = provider.getSigner();
-      console.log("header signer", signer);
+      // const signer = provider.getSigner();
+      // console.log("header signer", signer);
       setUserAddress(accounts[0]);
-      await switchNetwork();
+      switchNetwork();
+      // window.location.reload();
     } catch (error) {
       window.alert("wallet connection denied");
     }

@@ -1,12 +1,14 @@
 import { ethers } from "ethers";
 
 export const switchNetwork = async () => {
+  // console.log("switch here");
   try {
     await window.ethereum.request({
       method: "wallet_switchEthereumChain",
       params: [{ chainId: "0x61" }],
     });
   } catch (error) {
+    console.log("i am an error", error.code === 4902);
     if (error.code === 4902) {
       try {
         await window.ethereum.request({
@@ -14,14 +16,14 @@ export const switchNetwork = async () => {
           params: [
             {
               chainId: "0x61",
-              chainName: "Smart Chain — Testnet",
+              chainName: "Binance Smart Chain Testnet",
               nativeCurrency: {
                 name: "Binance",
                 symbol: "tBNB",
                 decimals: 18,
               },
               blockExplorerUrls: ["https://testnet.bscscan.com"],
-              rpcUrls: [" https://testnet.bscscan.com"],
+              rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545"],
             },
           ],
         });

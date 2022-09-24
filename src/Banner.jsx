@@ -1,23 +1,25 @@
 import { ethers } from "ethers";
 import React, { useContext, useState } from "react";
 import { AppContext } from "./context/appContext";
+import { getChainId, switchNetwork } from "./utils";
 
 export default function Banner() {
   const [userName, setUserName] = useState("");
-  const [userDonation, setUserDonation] = useState("0.1");
+  const [userDonation, setUserDonation] = useState("");
   const [twitter, setTwitter] = useState("");
   const [telegram, setTelegram] = useState("");
 
-  const validMessage = userName.trim() !== "" && userDonation !== 0;
-
   const { contracAddress, contractABI, signer } = useContext(AppContext);
+  const validMessage =
+    userName.trim() !== "" && userDonation !== "" && signer !== null;
 
   const handleUserName = (e) => {
     setUserName(e.target.value);
   };
 
   const handleUserDonation = (e) => {
-    setUserDonation(Number(e.target.value));
+    console.log(e.target.value);
+    setUserDonation(e.target.value);
   };
   const handleTwitter = (e) => {
     setTwitter(e.target.value);
@@ -27,6 +29,29 @@ export default function Banner() {
   };
 
   const handleDonation = async () => {
+    if (window.ethereum === undefined) return window.alert("Install metamask");
+
+    try {
+      console.log("try switch");
+      await switchNetwork();
+    } catch (error) {
+      console.log("switch error");
+      return window.alert(
+        "Please, switch to Smart Chain Testnet to proceed with the transaction"
+      );
+    }
+
+    const verifyId = async () => {
+      const id = await getChainId();
+      console.log("chainId if", id);
+      if (id !== 97) {
+        return window.alert(
+          "Please, switch to Smart Chain Testnet to proceed with the transaction"
+        );
+      }
+    };
+    verifyId();
+
     const writeContract = new ethers.Contract(
       contracAddress,
       contractABI,
@@ -42,12 +67,8 @@ export default function Banner() {
         value: ethers.utils.parseEther(userDonation.toString()),
       });
     } catch (error) {
-      console.log(error);
+      // window.alert("Transacion rejected");
     } finally {
-      setTelegram("");
-      setTwitter("");
-      setUserDonation("");
-      setUserName("");
     }
   };
 
@@ -94,7 +115,7 @@ export default function Banner() {
 
               <select
                 onChange={handleUserDonation}
-                class="block w-full text-gray-400 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                className="block w-full text-gray-400 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
                 name="animals"
               >
                 <option value="" className="text-gray-400">

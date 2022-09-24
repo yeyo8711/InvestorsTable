@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import Banner from "../../Banner";
-import { AppContext } from "../../context/appContext";
-import Donate from "../Donate";
 import Table from "../Table";
 
 const Main = () => {
