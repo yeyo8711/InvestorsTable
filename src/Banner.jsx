@@ -67,7 +67,7 @@ export default function Banner() {
         value: ethers.utils.parseEther(userDonation.toString()),
       });
     } catch (error) {
-      // window.alert("Transacion rejected");
+      window.alert(error.data.message);
     } finally {
     }
   };
